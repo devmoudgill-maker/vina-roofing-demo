@@ -1,0 +1,189 @@
+@import 'tailwindcss';
+
+/* ────────────────────────────────────────────────────────────
+   Verified Roofing Contractors — Design System v2
+   Warm, light, conversion-first. Soft lavender canvas, white cards,
+   a confident orange accent, navy for contrast & trust.
+   Type: Cal Sans (headings) × Inter (body).
+   ──────────────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'Cal Sans';
+  src: url('/fonts/CalSans-SemiBold.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  /* Canvas & surfaces */
+  --color-canvas: #edeff7;
+  --color-canvas-2: #e6e9f4;
+  --color-surface: #ffffff;
+  --color-tint: #f3f5fb;
+  --color-tint-2: #eaedf7;
+
+  /* Ink */
+  --color-ink: #191c2b;
+  --color-ink-soft: #565b70;
+  --color-ink-mute: #8a8fa3;
+  --color-line: #e4e7f1;
+
+  /* Navy (dark sections) */
+  --color-navy: #232841;
+  --color-navy-soft: #2c3250;
+  --color-navy-line: #3a4063;
+  --color-paper: #f5f6fb;
+  --color-paper-mute: #aab0c8;
+
+  /* Orange accent */
+  --color-orange: #2456b0;
+  --color-orange-bright: #3b73d6;
+  --color-orange-deep: #1b418a;
+  --color-orange-soft: #dde7f8;
+  --color-orange-glow: rgba(36, 86, 176, 0.18);
+
+  --color-gold: #f6b21b;
+  --color-verify: #2f9e6f;
+
+  --font-display: 'Cal Sans', 'Inter', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --shadow-sm: 0 2px 8px -2px rgba(25, 28, 43, 0.08);
+  --shadow-card: 0 10px 30px -12px rgba(25, 28, 43, 0.14);
+  --shadow-float: 0 30px 70px -28px rgba(25, 28, 43, 0.32);
+  --shadow-orange: 0 16px 34px -14px rgba(242, 106, 35, 0.5);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: var(--color-orange);
+    color: #fff;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-orange);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  .text-display {
+    font-size: clamp(2.4rem, 5.4vw, 4.6rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+  }
+  .text-section {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.04;
+    letter-spacing: -0.015em;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .accent {
+    color: var(--color-orange);
+  }
+  .overline {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .shell {
+    width: 100%;
+    max-width: 82rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.1rem, 4vw, 3rem);
+  }
+
+  /* Pill chip used for eyebrows */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    padding: 0.4rem 0.85rem 0.4rem 0.7rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .marquee-track {
+    animation: marquee 36s linear infinite;
+  }
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  .marquee-mask {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  }
+
+  .field {
+    width: 100%;
+    border-radius: 0.85rem;
+    border: 1px solid var(--color-line);
+    background: var(--color-tint);
+    padding: 0.85rem 1rem;
+    font-size: 0.95rem;
+    color: var(--color-ink);
+    transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
+  }
+  .field::placeholder {
+    color: var(--color-ink-mute);
+  }
+  .field:focus {
+    outline: none;
+    border-color: var(--color-orange);
+    background: #fff;
+    box-shadow: 0 0 0 4px var(--color-orange-glow);
+  }
+}

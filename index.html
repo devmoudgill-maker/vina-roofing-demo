@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#edeff7" />
+    <title>Vina Roofing Inc. — North York Roofing & Exteriors</title>
+    <meta
+      name="description"
+      content="Vina Roofing Inc. — North York's trusted roofers for 30+ years. WSIB & MSA certified, BBB accredited. Residential, commercial & aluminum exteriors across the GTA."
+    />
+    <!-- Speed up the image CDN connection for the hero (LCP) -->
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+
+    <!-- Self-hosted fonts: preload, no render-blocking external stylesheet -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/CalSans-SemiBold.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/Inter-Variable.woff2" crossorigin />
+
+    <!-- Preload the hero image so it's the first thing the phone fetches -->
+    <link
+      rel="preload"
+      as="image"
+      fetchpriority="high"
+      href="https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=1000&q=58"
+      imagesrcset="https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=480&q=58 480w, https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=720&q=58 720w, https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=1000&q=58 1000w, https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=1280&q=58 1280w"
+      imagesizes="(min-width: 1024px) 58vw, 100vw"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
